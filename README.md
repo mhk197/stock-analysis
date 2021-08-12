@@ -34,10 +34,12 @@ The original program did not format the output sheet -- that task was left to an
 While there is some variation in the runtime every time a Macro is run, the refactored code was clearly much faster than the original code. 
 
 The refactored code ran in approximately 0.164 seconds for the 2017 dataset and approximately 0.168 seconds for the 2018 dataset. 
+
 ![VBA_Challenge_2017](https://user-images.githubusercontent.com/87445739/129258387-13370b10-76bc-49bc-849d-b23519bcdf4e.png)
 ![VBA_Challenge_2018](https://user-images.githubusercontent.com/87445739/129258401-4e1cc6bc-89ab-4675-b47f-28bb9ba3d573.png)
 
 In comparison, the original code ran in approximately 0.828 seconds for the 2017 dataset and 0.883 seconds for the 2018 dataset.
+
 ![Original_Code_Runtime_2017](https://user-images.githubusercontent.com/87445739/129258472-d5516ebb-941e-4a76-b353-da150ed4e777.png)
 ![Original_Code_Runtime_2018](https://user-images.githubusercontent.com/87445739/129258500-52215674-6442-4287-91f4-7c2bc3ca5995.png)
 
