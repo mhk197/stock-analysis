@@ -13,16 +13,16 @@ This project entailed refactoring a VBA Macro that automates key components of e
 The original code implemented a nested For loop to iterate through the dataset. The outer loop iterated through an array of stock tickers, while the inner For loop iterated through all of the rows in the dataset and calculated the total daily volume, starting price, and ending price associated with the current ticker. The program held these values in single-value variables. After each iteration of the inner loop, the outer loop outputted the current ticker and its associated total daily volume and return on a designated output spreadsheet. Every time the outer loop iterated through the dataset, the total daily volume variable was reset to 0 and the starting price and ending price variables were updated with the values associated with the new ticker.
 ![Original_Code](https://user-images.githubusercontent.com/87445739/129258042-dcab29d4-93ef-4410-abcb-00a13033ba7d.png)
 
-**The original code therefore looped through the dataset 12 times -- one for each ticker. Additionally, it switched between the spreadsheet holding stock data and the output spreadsheet with each loop.**
+*The original code therefore looped through the dataset 12 times -- one for each ticker. Additionally, it switched between the spreadsheet holding stock data and the output spreadsheet with each loop.*
 
 #### Refactored Code
 The refactored code only implemented one For loop to iterate through the dataset. It held the tickers, total daily volumes, starting prices, and ending prices in separate arrays, and associated the corresponding values with the same index. A variable representing this index, tickerIndex, was initialized to 0 at the start of the loop. As the program progressed, it stored the total daily volumes, starting prices, and ending prices associated with the tickerIndex in their respective arrays. Finally, tickerIndex increased by 1 after the last row associated with the current ticker. The implementation of arrays instead of singular variables removed the need to iterate through the dataset for each ticker.
-![Refactored_Code_Main](https://user-images.githubusercontent.com/87445739/129258177-97679421-1478-4812-a110-88e7617d9799.png)
+![Refactored_Code_Main](https://user-images.githubusercontent.com/87445739/129258999-9148a8d4-6d69-4214-85a5-5d455fe79254.png)
 
-After collecting the relevant values from the dataset, the program then activated the separate output sheet and calculated and outputted the results of the analysis by iterating through each array with the same For loop. 
-![Refactored_Code_Formatting](https://user-images.githubusercontent.com/87445739/129258200-47f25dd8-4833-4ad9-969d-f36b1c4172b6.png)
+After collecting the relevant values from the dataset, the program then activated the separate output sheet and calculated and outputted the results of the analysis by iterating through each array with the same For loop.
+![Refactored_Code_Formatting](https://user-images.githubusercontent.com/87445739/129258849-69486323-3195-4aa3-81e0-70f8e61f6703.png)
 
-**The refactored code therefore looped through the dataset 1 time. It switched to the output spreadsheet only once, after this main loop.**
+*The refactored code therefore looped through the dataset 1 time. It switched to the output spreadsheet only once, after this main loop.*
 
 #### Additional Differences
 The original program did not format the output sheet -- that task was left to another Macro. The refactored program includes the code from that Macro, so analysis and formatting can be accomplished by one program.
