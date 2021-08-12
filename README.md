@@ -17,6 +17,7 @@ The original code implemented a nested For loop to iterate through the dataset. 
 
 #### Refactored Code
 The refactored code only implemented one For loop to iterate through the dataset. It held the tickers, total daily volumes, starting prices, and ending prices in separate arrays, and associated the corresponding values with the same index. A variable representing this index, tickerIndex, was initialized to 0 at the start of the loop. As the program progressed, it stored the total daily volumes, starting prices, and ending prices associated with the tickerIndex in their respective arrays. Finally, tickerIndex increased by 1 after the last row associated with the current ticker. The implementation of arrays instead of singular variables removed the need to iterate through the dataset for each ticker.
+
 ![Refactored_Code_Main](https://user-images.githubusercontent.com/87445739/129258999-9148a8d4-6d69-4214-85a5-5d455fe79254.png)
 
 After collecting the relevant values from the dataset, the program then activated the separate output sheet and calculated and outputted the results of the analysis by iterating through each array with the same For loop.
@@ -28,7 +29,7 @@ After collecting the relevant values from the dataset, the program then activate
 The original program did not format the output sheet -- that task was left to another Macro. The refactored program includes the code from that Macro, so analysis and formatting can be accomplished by one program.
 
 ### Efficiency of the Refactored Code
-While there is some variation in the runtime every time a Macro is run, the refactored code was clearly much fast than the original code. 
+While there is some variation in the runtime every time a Macro is run, the refactored code was clearly much faster than the original code. 
 
 The refactored code ran in approximately 0.164 seconds for the 2017 dataset and approximately 0.168 seconds for the 2018 dataset. 
 ![VBA_Challenge_2017](https://user-images.githubusercontent.com/87445739/129258387-13370b10-76bc-49bc-849d-b23519bcdf4e.png)
