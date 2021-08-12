@@ -10,14 +10,14 @@ This project entailed refactoring a VBA Macro that automates key components of e
 ### Differences between the Original Code and the Refactored Code
 
 #### Original Code
-The original code implemented a nested For loop to iterate through the dataset. The outer loop iterated through an array of stock tickers, while the inner For loop iterated through all of the rows in the dataset and calculated the total daily volume, starting price, and ending price associated with the current ticker. The program held these values in single-value variables. After each iteration of the inner loop, the outer loop outputted the current ticker and its associated total daily volume and return on a designated output spreadsheet. Every time the outer loop iterated through the dataset, the total daily volume variable was reset to 0 and the starting price and ending price variables were updated with the values associated with the new ticker.
+The original code implemented a nested For loop to iterate through the dataset. The outer loop iterated through an array of stock tickers, while the inner For loop iterated through all of the rows in the dataset and calculated the total daily volume, starting price, and ending price associated with the current ticker. The program held these values in one-dimensional variables. After each iteration of the inner loop, the outer loop outputted the current ticker and its associated total daily volume and return on a designated output spreadsheet. Every time the outer loop iterated through the dataset, the total daily volume variable was reset to 0 and the starting price and ending price variables were updated with the values associated with the new ticker.
 
 ![Original_Code](https://user-images.githubusercontent.com/87445739/129258042-dcab29d4-93ef-4410-abcb-00a13033ba7d.png)
 
 *The original code therefore looped through the dataset 12 times -- one for each ticker. Additionally, it switched between the spreadsheet holding stock data and the output spreadsheet with each loop.*
 
 #### Refactored Code
-The refactored code only implemented one For loop to iterate through the dataset. It held the tickers, total daily volumes, starting prices, and ending prices in separate arrays, and associated the corresponding values with the same index. A variable representing this index, tickerIndex, was initialized to 0 at the start of the loop. As the program progressed, it stored the total daily volumes, starting prices, and ending prices associated with the tickerIndex in their respective arrays. Finally, tickerIndex increased by 1 after the last row associated with the current ticker. The implementation of arrays instead of singular variables removed the need to iterate through the dataset for each ticker.
+The refactored code only implemented one For loop to iterate through the dataset. It held the tickers, total daily volumes, starting prices, and ending prices in separate arrays, and associated the corresponding values with the same index. A variable representing this index, tickerIndex, was initialized to 0 at the start of the loop. As the program progressed, it added the daily volumes, starting prices, and ending prices associated with the tickerIndex in their respective arrays. Finally, tickerIndex increased by 1 after the last row associated with the current ticker. The implementation of arrays instead of singular variables removed the need to iterate through the dataset for each ticker.
 
 ![Refactored_Code_Main](https://user-images.githubusercontent.com/87445739/129258999-9148a8d4-6d69-4214-85a5-5d455fe79254.png)
 
@@ -43,4 +43,10 @@ In comparison, the original code ran in approximately 0.828 seconds for the 2017
 
 ## Summary
 
-### Refactoring 
+### Refactoring in General
+
+Proper refactoring can make code more efficient, easier to understand, and more flexible. However, it may be conceptually difficult and time-consuming to refactor complex code. It is important to ascertain whether these benefits outweigh the possibly substantial opportunity cost of refactoring, as well as the risk of introducing new problems to the program.
+
+### Refactoring this VBA Script
+
+In the case of this VBA Script, refactoring was clearly beneficial. The implementation of arrays instead of one-dimensional variables made it possible to iterate through the dataset only once, which drastically reduced the runtime of the program. It also made it possible to store the total daily volume, starting price, and ending price values globally, for use anywhere else in the program (e.g. printing the values onto another spreadsheet), making the refactored code much more modular and flexible than the original. 
